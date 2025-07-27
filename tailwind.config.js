@@ -20,22 +20,7 @@ export default {
 			}
 		},
 		fontFamily: {
-			inter: [
-				'Inter',
-				'sans-serif'
-			],
-			roboto: [
-				'Roboto',
-				'sans-serif'
-			],
-			montserrat: [
-				'Montserrat',
-				'sans-serif'
-			],
-			sora: [
-				'Sora',
-				'sans-serif'
-			]
+			sans: ['Inter', 'sans-serif'],
 		},
 		boxShadow: {
 			glow: '0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #a855f7, 0 0 25px #4338ca'
