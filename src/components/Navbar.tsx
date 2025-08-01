@@ -14,10 +14,10 @@ export const Navbar = () => {
 
     return (
         <nav className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div className='text-xl font-bold'>{"< V.Andrianarisoa />"}</div>
+            <div className='text-xl font-bold'>VA</div>
             
             {/* Desktop Links */}
-            <ul className="hidden lg:flex gap-6">
+            <ul className="hidden md:flex gap-6">
                 { navLinks.map((link) => (
                     <li key={link.id}>
                         <Link 
@@ -36,7 +36,7 @@ export const Navbar = () => {
             </ul>
 
             {/* Menu Mobile */}
-            <div className="lg:hidden flex items-center gap-2">
+            <div className="md:hidden flex items-center gap-2">
                 <ModeToggle/>
 
                 {/* Menu Popover */}
@@ -45,75 +45,76 @@ export const Navbar = () => {
                     size="icon"
                     onClick={() => setOpen(!open)}
                     >
-                        <motion.div
-                            key={open ? 'open' : 'menu'}
-                            initial={{ rotate: -90, opacity: 0 }}
-                            animate={{ rotate: 0, opacity: 1 }}
-                            exit={{ rotate: 90, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            { open ? <X className="h-6 w-6"/> : <Menu className="h-6 w-6"/> }
-                        </motion.div>
-
-                        <AnimatePresence>
-                            { open && (
-                                <motion.div
-                                    initial={{ height: 0, opacity: 0 }}
-                                    animate={{ height: 'auto', opacity: 1 }}
-                                    exit={{ height: 0, opacity: 0 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="absolute top-[64px] left-0 w-full bg-background shadow-md z-40"
-                                >
-                                    <motion.div
-                                        className="flex flex-col space-y-6 py-6 px-4"
-                                        initial="hidden"
-                                        animate="visible"
-                                        variants={{ 
-                                            hidden: {}, 
-                                            visible: { transition: { staggerChildren: 0.1 }},
-                                        }}
-                                    >
-                                        { navLinks.map((link) => (
-                                            <motion.div
-                                                key={link.id}
-                                                variants={{ 
-                                                    hidden: { opacity: 0, y: -10 },
-                                                    visible: { opacity: 1, y: 0 } 
-                                                }}>
-                                                    <Link
-                                                        to={link.id}
-                                                        spy={true}
-                                                        smooth={true}
-                                                        offset={-70}
-                                                        duration={500}
-                                                        className="cursor-pointer text-lg font-medium transition-colors hover:text-primary transition"
-                                                        onClick={() => setOpen(false)}
-                                                    >
-                                                        {link.label}
-                                                    </Link>
-                                            </motion.div>
-                                        ))}
-
-                                        {/* Bouton CV */}
-                                        <motion.div
-                                            variants={{
-                                                hidden: { opacity: 0, y: -10 },
-                                                visible: { opacity: 1, y: 0 }
-                                            }}
-                                        >
-                                            <Button asChild className="w-full mt-4">
-                                                <a href="" download>Telécharger CV</a>
-                                            </Button>
-                                        </motion.div>
-                                    </motion.div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                    <motion.div
+                        key={open ? 'open' : 'menu'}
+                        initial={{ rotate: -90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 90, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        { open ? <X className="h-6 w-6"/> : <Menu className="h-6 w-6"/> }
+                    </motion.div>
                 </Button>
 
+                <AnimatePresence mode="wait">
+                    { open && (
+                        <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="absolute top-[64px] mx-auto left-0 w-full bg-background shadow-md z-40"
+                        >
+                            <motion.div
+                                className="flex flex-col space-y-2 py-6 px-4"
+                                initial="hidden"
+                                animate="visible"
+                                variants={{ 
+                                    hidden: {}, 
+                                    visible: { transition: { staggerChildren: 0.1 }},
+                                }}
+                            >
+                                { navLinks.map((link) => (
+                                    <motion.div
+                                        key={link.id}
+                                        variants={{ 
+                                            hidden: { opacity: 0, y: -10 },
+                                            visible: { opacity: 1, y: 0 }
+                                        }}
+                                        className="text-center"
+                                        >
+                                            <Link
+                                                to={link.id}
+                                                spy={true}
+                                                smooth={true}
+                                                offset={-70}
+                                                duration={500}
+                                                className="cursor-pointer text-lg font-medium transition-colors hover:text-primary transition"
+                                                onClick={() => setOpen(false)}
+                                            >
+                                                {link.label}
+                                            </Link>
+                                    </motion.div>
+                                ))}
+
+                                {/* Bouton CV */}
+                                <motion.div
+                                    variants={{
+                                        hidden: { opacity: 0, y: -10 },
+                                        visible: { opacity: 1, y: 0 }
+                                    }}
+                                >
+                                    <Button asChild className="w-full mt-4">
+                                        <a href="" download>Telécharger CV</a>
+                                    </Button>
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
 
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
                 <ModeToggle/>
                 <Button variant="default" asChild><a href="" download>Télecharger CV</a></Button>
             </div>

@@ -38,22 +38,27 @@ export default {
   			},
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
+				hover: 'hsl(var(--primary-hover))',
   				foreground: 'hsl(var(--primary-foreground))'
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
+				hover: 'hsl(var(--secondary-hover))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
+				hover: 'hsl(var(--muted-hover))',
   				foreground: 'hsl(var(--muted-foreground))'
   			},
   			accent: {
   				DEFAULT: 'hsl(var(--accent))',
+				hover: 'hsl(var(--accent-hover))',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
   			destructive: {
   				DEFAULT: 'hsl(var(--destructive))',
+				hover: 'hsl(var(--destructive-hover)',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
   			dark: {
@@ -114,4 +119,3 @@ export default {
 	require("tailwindcss-animate")
   ],
 }
-
