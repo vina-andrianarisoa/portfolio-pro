@@ -2,6 +2,7 @@ import { Link } from 'react-scroll';
 import { navLinks } from '@/data/navLinks';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import useUIStore from '@/store/useUIStore';
 
@@ -10,9 +11,12 @@ export const MenuDesktop = () => {
 
     return (
         <>
-            <ul className="hidden md:flex gap-6">
+            <ul className="hidden md:flex items-center gap-6 relative">
                 { navLinks.map((link) => (
-                    <li key={link.id}>
+                    <li 
+                        key={link.id}
+                        className="relative"
+                        >
                         <Link 
                             to={link.id}
                             spy={true}
@@ -24,6 +28,14 @@ export const MenuDesktop = () => {
                         >
                             {link.label}
                         </Link>
+
+                        { active === link.id && (
+                            <motion.div
+                                layoutId='underline'
+                                className="absolute -bottom-5 left-0 h-[2px] w-full bg-primary"
+                                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                            />
+                        ) }
                     </li>
                 )) }
             </ul>
