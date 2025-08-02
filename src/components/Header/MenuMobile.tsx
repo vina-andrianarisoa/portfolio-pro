@@ -81,7 +81,7 @@ export const MenuMobile = () => {
                                     }}
                                 >
                                     <Button asChild className="w-full mt-4">
-                                        <a href="" download>Telécharger CV</a>
+                                        <a href="public/cv/Andrianarisoa_Vina_CV.pdf" download>Telécharger CV</a>
                                     </Button>
                                 </motion.div>
                             </motion.div>
