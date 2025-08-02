@@ -7,5 +7,5 @@ export interface HeroData {
     description: string;
     image: string;
     tech: { name: string; icon: string }[],
-    ctas: { name: string; href: string; icon: string; variant: "primary" | "secondary"  }[],
+    ctas: { label: string; href: string; icon: string; variant: "primary" | "secondary"  }[],
 }
