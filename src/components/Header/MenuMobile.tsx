@@ -80,8 +80,8 @@ export const MenuMobile = () => {
                                         visible: { opacity: 1, y: 0 }
                                     }}
                                 >
-                                    <Button asChild className="w-full mt-4">
-                                        <a href="public/cv/Andrianarisoa_Vina_CV.pdf" download>Telécharger CV</a>
+                                    <Button className="w-full mt-4" >
+                                        <a href="public/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Telécharger CV</a>
                                     </Button>
                                 </motion.div>
                             </motion.div>
