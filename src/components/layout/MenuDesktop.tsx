@@ -42,7 +42,7 @@ export const MenuDesktop = () => {
 
             <div className="hidden md:flex items-center gap-3">
                 <ModeToggle/>
-                <Button variant="default" asChild><a href="public/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Télecharger CV</a></Button>
+                <Button variant="default" asChild><a href="/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Télecharger CV</a></Button>
             </div>
         </>
     )
