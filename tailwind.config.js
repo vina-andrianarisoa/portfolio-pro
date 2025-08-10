@@ -56,6 +56,11 @@ export default {
 				hover: 'hsl(var(--accent-hover))',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
+			success: {
+				DEFAULT: 'hsl(var(--success))',
+				hover: 'hsl(var(--success-hover)',
+				foreground: 'hsl(var(--success-foreground))'
+			},
   			destructive: {
   				DEFAULT: 'hsl(var(--destructive))',
 				hover: 'hsl(var(--destructive-hover)',
@@ -84,7 +89,7 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
 		},
 		borderRadius: {
 			lg: 'var(--radius)',
