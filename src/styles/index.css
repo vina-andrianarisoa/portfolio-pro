@@ -33,6 +33,11 @@
     --accent-hover: 249 95% 70%;
     --accent-foreground: 0 0% 100%;
 
+    /* Vertes pour les actions de succès */
+    --success: 150 60% 45%;
+    --success-hover: 150 60% 50%;
+    --success-foreground: 150 70% 90%;
+
     /* Rouges pour les actions destructives */
     --destructive: 0 84% 60%;
     --destructive-hover: 0 84% 55%;
@@ -52,13 +57,14 @@
     --radius: 0.5rem
   }
   .dark {
-    --background: 224 71% 4%;
+    /* --background: 224 71% 4%; */
+    --background: 0 0% 4%;
     --foreground: 0 0% 100%;
 
     --card: 222 47% 11%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 222 47% 11%;
+    --popover: 0 0% 4%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 249 95% 63%;
@@ -76,6 +82,10 @@
     --accent: 249 95 63%;
     --accent-hover: 249 95 70%;
     --accent-foreground: 0 0% 100%;
+
+    --success: 150 70% 60%;
+    --success-hover: 150 60% 65%;
+    --success-foreground: 150 60% 15%;
 
     --destructive: 0 62% 50%;
     --destructive-hover: 0 62% 45%;
