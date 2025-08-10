@@ -11,7 +11,7 @@ export const MenuMobile = () => {
     const { active, setActive, open, setOpen } = useUIStore();
 
     return (
-<div className="md:hidden flex items-center gap-2">
+<div className="lg:hidden flex items-center gap-2">
                 <ModeToggle/>
 
                 {/* Menu Popover */}

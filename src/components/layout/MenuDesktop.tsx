@@ -11,7 +11,7 @@ export const MenuDesktop = () => {
 
     return (
         <>
-            <ul className="hidden md:flex items-center gap-6 relative">
+            <ul className="hidden lg:flex items-center gap-6 relative">
                 { navLinks.map((link) => (
                     <li 
                         key={link.id}
@@ -40,7 +40,7 @@ export const MenuDesktop = () => {
                 )) }
             </ul>
 
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3">
                 <ModeToggle/>
                 <Button variant="default" asChild><a href="/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Télecharger CV</a></Button>
             </div>
