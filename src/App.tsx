@@ -1,4 +1,5 @@
 import { Header } from '@/components/layout/Header'
+import Hero from '@/components/sections/Hero'
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
       <Header/>
     
       <main className="flex-1">
-        <div>Main</div>
+        <Hero/>
       </main>
 
       <footer>
