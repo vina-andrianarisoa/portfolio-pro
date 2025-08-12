@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const textShadow = require("tailwindcss-textShadow")
+
 export default {
     darkMode: ["class"],
     content: [
@@ -23,7 +26,7 @@ export default {
 			sans: ['Inter', 'sans-serif'],
 		},
 		boxShadow: {
-			glow: '0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #a855f7, 0 0 25px #4338ca'
+			glow: '0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #a855f7, 0 0 25px #4338ca, 0px 0px 30px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #a855f7'
 		},
 		colors: {
 			background: 'hsl(var(--background))',
@@ -96,6 +99,10 @@ export default {
 			md: 'calc(var(--radius) - 2px)',
 			sm: 'calc(var(--radius) - 4px)'
 		},
+		backgroundImage: {
+			"gradient-primary-light": "linear-gradient(90deg, hsl(260 80% 60) 0%, hsl(260, 80%, 75%) 30%, hsl(260, 80%, 90%) 100%)",
+			"gradient-primary-dark": "linear-gradient(90deg, hsl(260 80% 35%) 0%, hsl(260, 80%, 50%) 30%, hsl(260, 80%, 65%) 100%)",
+		},
   		keyframes: {
   			'accordion-down': {
   				from: {
@@ -121,6 +128,7 @@ export default {
   	}
   },
   plugins: [
-	require("tailwindcss-animate")
+	require('tailwindcss-animate'),
+	textShadow
   ],
 }
