@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import useUIStore from '@/store/useUIStore';
+import { Download } from 'lucide-react';
 
 export const MenuDesktop = () => {
     const { active, setActive } = useUIStore();
@@ -42,7 +43,7 @@ export const MenuDesktop = () => {
 
             <div className="hidden lg:flex items-center gap-3">
                 <ModeToggle/>
-                <Button variant="default" asChild><a href="/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Télecharger CV</a></Button>
+                <Button variant="link" asChild><a href="/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Télecharger CV <Download/></a></Button>
             </div>
         </>
     )

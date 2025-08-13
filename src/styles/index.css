@@ -14,8 +14,8 @@
     --popover-foreground: 222.2 47% 11%;
 
     /* Couleurs principales */
-    --primary: 249 95% 63%;
-    --primary-hover: 249 95% 58%;
+    --primary: 260 80% 65%;
+    --primary-hover: 260 80% 55%;
     --primary-foreground: 0 0% 100%;
 
     /* Couleurs secondaires (fonds neutres) */
@@ -29,14 +29,14 @@
     --muted-foreground: 220 8% 46%;
 
     /* Couleur d'accentuation (liens, focus subtils) */
-    --accent: 249 95% 63%;
-    --accent-hover: 249 95% 70%;
+    --accent: 260 80% 65%;
+    --accent-hover: 260 80% 55%;
     --accent-foreground: 0 0% 100%;
 
     /* Vertes pour les actions de succès */
-    --success: 150 60% 45%;
-    --success-hover: 150 60% 50%;
-    --success-foreground: 150 70% 90%;
+    --success: 142 56% 46%;
+    --success-hover: 142 56% 40%;
+    --success-foreground: 142 56% 95%;
 
     /* Rouges pour les actions destructives */
     --destructive: 0 84% 60%;
@@ -67,8 +67,8 @@
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 249 95% 63%;
-    --primary-hover: 249 95% 70%;
+    --primary: 260 65% 50%;
+    --primary-hover: 260 80% 75%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 215 16% 27%;
@@ -79,13 +79,13 @@
     --muted-hover: 215 16% 25%;
     --muted-foreground: 217 20% 65%;
 
-    --accent: 249 95 63%;
-    --accent-hover: 249 95 70%;
+    --accent: 260 65 50%;
+    --accent-hover: 260 80 75%;
     --accent-foreground: 0 0% 100%;
 
-    --success: 150 70% 60%;
-    --success-hover: 150 60% 65%;
-    --success-foreground: 150 60% 15%;
+    --success: 142 56% 30%;
+    --success-hover: 142 56% 40%;
+    --success-foreground: 142 56% 90%;
 
     --destructive: 0 62% 50%;
     --destructive-hover: 0 62% 45%;

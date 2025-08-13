@@ -17,8 +17,8 @@ export function ModeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button 
-          variant="default" 
-          size="icon" 
+          variant="ghost"
+          size="icon"
           className={cn("rounded-full relative overflow-hidden")}
           >
 

@@ -1,8 +1,10 @@
 export interface HeroData {
-    greeting: string;
+    greetingText: string;
+    greetingEmoji: string;
+    intro: string;
     name: string;
     location: string;
-    role: string;
+    role: string[];
     availability: string;
     description: string;
     image: string;

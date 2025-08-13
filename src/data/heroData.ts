@@ -1,10 +1,12 @@
 import { HeroData } from "@/types/hero";
 
 export const heroData: HeroData = {
-    greeting: "Hey, je suis",
+    greetingText: "Hi!",
+    greetingEmoji: "👋",
+    intro: "je suis,",
     name: "Vina Andrianarisoa",
     location: "Madagascar",
-    role: "Developpeur Front-end spécialisé React",
+    role: ["Développeur Front-end", "Spécialisé en React"],
     availability: "Disponible pour opportunités",
     description: "Passionné par la création d'interfaces modernes, fluides et interactives modernes, fluides et interactives avec React. Tailwind CSS et Framer Motion. J'aime transformer mes idées en experiences visuelles engageantes.",
     image: "/",
