@@ -1,22 +1,21 @@
 import { heroData } from "@/data/heroData"
-import { ArrowRight, Play, ChevronDown } from 'lucide-react'
+import { ArrowRight, Play, Mouse, ArrowDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion' 
 import Typewriter from 'typewriter-effect'
-import { Link } from 'react-scroll';
 
 export default function Hero() {
     const { greetingText, greetingEmoji, intro, role, name, description } = heroData
 
     return (
         <section id="home"
-            className="py-20 lg:py-32 max-h-screen"
+            className="min-h-screen w-full flex justify-center items-center"
         >
             <div className="container">
-                <div className="grid justify-center rounded-xl p-3 items-center lg:grid-cols-[2fr_1fr] gap-4">
+                <div className="grid justify-center items-center rounded-xl lg:grid-cols-[2fr_1fr] gap-2">
 
                     {/* Contenu textuel */}
-                    <div className="space-y-8 order-2 lg:order-1">
+                    <div className="space-y-8 order-2 lg:order-1 lg:pt-10">
 
                         {/* Titre principal */}
                         <div className="space-y-3 lg:space-y-4">
@@ -34,7 +33,7 @@ export default function Hero() {
                                     <span>{" "}{intro}</span>
                                 </h1>
 
-                                <h2 className="text-center lg:text-left text-3xl md:text-4xl lg:text-5xl bg-primary bg-gradient-primary-light dark:bg-gradient-primary-dark font-extrabold tracking-tight bg-clip-text text-transparent">
+                                <h2 className="text-center lg:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-primary bg-gradient-primary-light dark:bg-gradient-primary-dark font-extrabold tracking-tight bg-clip-text text-transparent whitespace-nowrap">
                                     <Typewriter
                                         onInit={(typewriter) => {
                                             typewriter.typeString(`${name}`)
@@ -62,18 +61,18 @@ export default function Hero() {
                                 </h2>
                             </div>
 
-                            <p className="text-sm text-center lg:text-left lg:text-base text-muted-foreground max-w-lg">
+                            <p className="text-sm text-center lg:text-left lg:text-base text-muted-foreground mx-auto lg:mx-0 max-w-lg">
                                 {description}
                             </p>
                         </div>
 
                         {/* Réseaux sociaux */}
-                        <div className="flex items-center space-x-8 py-4">
-                        
-                        </div>
+                        {/* <div className="flex items-center space-x-8 py-4">
+
+                        </div> */}
 
                         {/* Boutons d'action */}
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                             <Button size="lg" className="text-base shadow-xl" asChild>
                                 <a href="">
                                 Contactez-moi
@@ -88,8 +87,8 @@ export default function Hero() {
                     </div>
 
                     {/* Image/Profil */}
-                    <div className="relative order-1 lg:order-2">
-                        <div className="relative h-[150px] w-[150px] lg:h-[25vw] lg:w-[25vw] mx-auto rounded-full border-4 border-primary before:absolute before:content-[''] before:shadow-glow before:overflow-hidden before:w-full before:h-full before:animate-pulse before:rounded-full">
+                    <div className="relative order-1 lg:order-2 pt-10 lg:pt-0">
+                        <div className="relative h-[150px] w-[150px] lg:h-[25vw] lg:w-[25vw] max-w-[300px] max-h-[300px] mx-auto rounded-full border-4 border-primary before:absolute before:content-[''] before:shadow-glow before:overflow-hidden before:w-full before:h-full before:animate-pulse before:rounded-full">
                             <div className="aspect-[4/4] rounded-full bg-gradient-to-br from-primary/10 via-primary/5 to-transparent">
                                 <img
                                 src="images/profile/profile.jpg"
@@ -97,30 +96,16 @@ export default function Hero() {
                                 className="w-full h-full rounded-full object-cover"
                                 />
                             </div>
-                        
-                            {/* Éléments décoratifs flottants */}
-                            {/* <div className="absolute -top-4 -right-4 h-24 w-24 bg-red-900 rounded-full blur-xl"></div>
-                            <div className="absolute -bottom-8 -left-8 h-32 w-32 bg-secondary/30 rounded-full blur-2xl"></div>
-                            <div className="absolute top-10 left-10 h-24 w-24 bg-primary/30 rounded-full blur-2xl"></div> */}
                         </div>
-                        
-                        {/* Badge flottant */}
-                        <div className="absolute -bottom-6 right-6 bg-background border rounded-lg shadow-lg px-2 animate-bounce">
-                            <div className="flex items-center space-x-3">
-                                <div className="h-3 w-3 bg-green-500 rounded-full animate-pulse"></div>
-                                <div>
-                                    <div className="text-xs text-muted-foreground">Ouvert à toutes opportunités</div>
-                                </div>
-                            </div>
-                        </div>
-                
                     </div>
                 </div>
-                
-                <div className="mx-auto flex items-center w-fit animate-bounce cursor-pointer my-5 lg:my-20">
-                    <Link to="#about">
-                        <ChevronDown className="h-6 w-6"/>
-                    </Link>
+
+                <div className="flex flex-col items-center justify-center mt-10 lg:mt-20 mx-auto w-fit">
+                    <div className="flex">
+                        <Mouse className="h-6 w-6"/>
+                        <ArrowDown className="h-6 w-4 animate-bounce"/>
+                    </div>
+                    <p className="text-sm">Scroll down</p>
                 </div>
             </div>
         </section>

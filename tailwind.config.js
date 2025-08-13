@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const textShadow = require("tailwindcss-textShadow")
-
 export default {
     darkMode: ["class"],
     content: [
@@ -26,10 +24,10 @@ export default {
 			sans: ['Inter', 'sans-serif'],
 		},
 		textShadow: {
-			glow: "0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #f472b6, 0 0 25px #4338ca, 0px 0px 30px #a855f7, 0 0 35px #f472b6, 0 0 40px #a855f7, 0 0 45px #4338ca, 0px 0px 50px #f472b6"
+			glow: "0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #f472b6, 0 0 25px #4338ca, 0px 0px 30px #a855f7, 0 0 35px #f472b6"
 		},
 		boxShadow: {
-			glow: '0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #f472b6, 0 0 25px #4338ca, 0px 0px 30px #a855f7, 0 0 35px #f472b6, 0 0 40px #a855f7, 0 0 45px #4338ca, 0px 0px 50px #f472b6'
+			glow: '0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #f472b6, 0 0 25px #4338ca, 0px 0px 30px #a855f7, 0 0 35px #f472b6'
 		},
 		colors: {
 			background: 'hsl(var(--background))',
@@ -131,7 +129,6 @@ export default {
   	}
   },
   plugins: [
-	require('tailwindcss-animate'),
-	textShadow,
+	require('tailwindcss-animate')
  ]
 }
