@@ -43,7 +43,7 @@ export const MenuDesktop = () => {
 
             <div className="hidden lg:flex items-center gap-3">
                 <ModeToggle/>
-                <Button variant="link" asChild><a href="/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Télecharger CV <Download/></a></Button>
+                <Button variant="outline" asChild><a href="/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Télecharger CV <Download/></a></Button>
             </div>
         </>
     )

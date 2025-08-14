@@ -80,7 +80,7 @@ export const MenuMobile = () => {
                                         visible: { opacity: 1, y: 0 }
                                     }}
                                 >
-                                    <Button className="w-full mt-4" >
+                                    <Button variant="default" className="w-full mt-4" >
                                         <a href="/cv/Andrianarisoa_Vina_CV.pdf" download="Andrianarisoa_Vina_CV.pdf">Telécharger CV</a>
                                     </Button>
                                 </motion.div>
