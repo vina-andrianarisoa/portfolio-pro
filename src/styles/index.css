@@ -91,7 +91,8 @@
     --destructive-hover: 0 62% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 215 16% 27%;
+    /* --border: 215 16% 27%; */
+    --border: 260 65% 50%;
     --input: 215 16% 27%;
     --ring: 249 95% 63%;
     --chart-1: 220 70% 50%;
