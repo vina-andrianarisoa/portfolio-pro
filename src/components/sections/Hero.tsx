@@ -1,21 +1,22 @@
 import { heroData } from "@/data/heroData"
-import { ArrowRight, Play, Mouse, ArrowDown } from 'lucide-react'
+import { Mouse, ArrowDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion' 
 import Typewriter from 'typewriter-effect'
+import { Link } from "react-scroll"
 
 export default function Hero() {
-    const { greetingText, greetingEmoji, intro, role, name, description } = heroData
+    const { greetingText, greetingEmoji, intro, role, name, description, imageSrc, ctas } = heroData
 
     return (
         <section id="home"
             className="min-h-screen w-full flex justify-center items-center"
         >
             <div className="container">
-                <div className="grid justify-center items-center rounded-xl lg:grid-cols-[2fr_1fr] gap-2">
+                <div className="grid place-content-center rounded-xl lg:grid-cols-[2fr_1fr] gap-2 lg:pt-32">
 
                     {/* Contenu textuel */}
-                    <div className="space-y-8 order-2 lg:order-1 lg:pt-10">
+                    <div className="space-y-8 order-2 lg:order-1">
 
                         {/* Titre principal */}
                         <div className="space-y-3 lg:space-y-4">
@@ -66,46 +67,45 @@ export default function Hero() {
                             </p>
                         </div>
 
-                        {/* Réseaux sociaux */}
-                        {/* <div className="flex items-center space-x-8 py-4">
-
-                        </div> */}
-
                         {/* Boutons d'action */}
                         <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                            <Button size="lg" className="text-base shadow-xl" asChild>
-                                <a href="">
-                                Contactez-moi
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                                </a>
-                            </Button>
-                            <Button variant="outline" size="lg" className="text-base shadow-xl">
-                                <Play className="mr-2 h-5 w-5" />
-                                Voir mes projets
-                            </Button>
+                            {ctas.map(({ variant, href, label, icon: Icon }) => (
+                                <Button
+                                    key={label}
+                                    variant={variant}
+                                    className="text-base shadow-xl"
+                                    size="lg"
+                                    asChild
+                                >
+                                    <Link to={href}>
+                                        {label}
+                                        {Icon && <Icon className="ml-2 h-5 w-5" />}
+                                    </Link>
+                                </Button>
+                            ))}
                         </div>
                     </div>
 
                     {/* Image/Profil */}
-                    <div className="relative order-1 lg:order-2 pt-10 lg:pt-0">
+                    <div className="relative order-1 lg:order-2 pt-10 pb-5 lg:pt-0 lg:pb-0">
                         <div className="relative h-[150px] w-[150px] lg:h-[25vw] lg:w-[25vw] max-w-[300px] max-h-[300px] mx-auto rounded-full border-4 border-primary before:absolute before:content-[''] before:shadow-glow before:overflow-hidden before:w-full before:h-full before:animate-pulse before:rounded-full">
                             <div className="aspect-[4/4] rounded-full bg-gradient-to-br from-primary/10 via-primary/5 to-transparent">
                                 <img
-                                src="images/profile/profile.jpg"
-                                alt="Photo de mon profil"
-                                className="w-full h-full rounded-full object-cover"
+                                    src={imageSrc}
+                                    alt="Photo de mon profil"
+                                    className="w-full h-full rounded-full object-cover"
                                 />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center mt-10 lg:mt-20 mx-auto w-fit">
+                <div className="flex flex-col items-center justify-center mt-10 lg:mt-20 mx-auto w-fit animate-pulse">
                     <div className="flex">
                         <Mouse className="h-6 w-6"/>
                         <ArrowDown className="h-6 w-4 animate-bounce"/>
                     </div>
-                    <p className="text-sm">Scroll down</p>
+                    <p className="text-sm">Faites défiler</p>
                 </div>
             </div>
         </section>
