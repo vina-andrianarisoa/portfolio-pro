@@ -5,8 +5,8 @@ export interface HeroData {
     greetingEmoji: string;
     intro: string;
     name: string;
-    role: string[];
-    description: string;
+    roles: string[];
+    description: { text: string; bold: boolean }[];
     imageSrc?: string;
     ctas: { label: string; href: string; icon: ComponentType<SVGProps<SVGSVGElement>>; variant: "default" | "secondary" | "outline";  }[],
 }

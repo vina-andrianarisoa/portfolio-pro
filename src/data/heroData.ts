@@ -6,8 +6,12 @@ export const heroData: HeroData = {
     greetingEmoji: "👋",
     intro: "je suis,",
     name: "Vina Andrianarisoa",
-    role: ["Développeur Front-end", "Spécialisé en React"],
-    description: "Passionné par la création d'interfaces modernes, fluides et interactives modernes, fluides et interactives avec React. Tailwind CSS et Framer Motion. J'aime transformer mes idées en experiences visuelles engageantes.",
+    roles: ["autodidacte", "passionné", "créatif", "Développeur Front-end React"],
+    description: [
+        { text: "Développeur Front-end autodidacte, je conçois des interfaces modernes et interactives avec", bold: false },
+        { text: "React, Tailwind CSS, Framer Motion et ShadCN", bold: true},
+        { text: "transformant les idées en expériences visuelles captivantes.", bold: false },
+    ],
     imageSrc: "images/profile/profile.jpg",
     ctas: [
         { label: "Me contater", href: "#contact", icon: ArrowRight, variant: "default" },
