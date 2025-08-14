@@ -6,7 +6,7 @@ import Typewriter from 'typewriter-effect'
 import { Link } from "react-scroll"
 
 export default function Hero() {
-    const { greetingText, greetingEmoji, intro, role, name, description, imageSrc, ctas } = heroData
+    const { greetingText, greetingEmoji, intro, roles, name, description, imageSrc, ctas } = heroData
 
     return (
         <section id="home"
@@ -40,16 +40,16 @@ export default function Hero() {
                                             typewriter.typeString(`${name}`)
                                                 .pauseFor(1000)
                                                 .deleteAll()
-                                                .typeString(`${role[0]}`)
+                                                .typeString(`${roles[0]}`)
                                                 .pauseFor(1000)
                                                 .deleteAll()
-                                                .typeString(`${role[1]}`)
+                                                .typeString(`${roles[1]}`)
                                                 .pauseFor(1000)
                                                 .deleteAll()
-                                                .typeString(`autodidacte & passionné`)
-                                                .pauseFor(500)
+                                                .typeString(`${roles[2]}`)
+                                                .pauseFor(1000)
                                                 .deleteAll()
-                                                .typeString(`créatif`)
+                                                .typeString(`${roles[3]}`)
                                                 .start()
                                             }}
                                             options={{
@@ -63,7 +63,11 @@ export default function Hero() {
                             </div>
 
                             <p className="text-sm text-center lg:text-left lg:text-base text-muted-foreground mx-auto lg:mx-0 max-w-lg">
-                                {description}
+                                {description.map((part, index) => 
+                                    (
+                                        part.bold ? <span key={index} className="font-bold text-accent">{" "}{part.text}{" "}</span> : <span key={index}>{part.text}</span>
+                                    )
+                                )}
                             </p>
                         </div>
 
@@ -100,12 +104,12 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-center mt-10 lg:mt-20 mx-auto w-fit animate-pulse">
+                <div className="flex flex-col items-center justify-center mt-12 lg:mt-20 mx-auto w-fit opacity-25 animate-pulse">
                     <div className="flex">
                         <Mouse className="h-6 w-6"/>
                         <ArrowDown className="h-6 w-4 animate-bounce"/>
                     </div>
-                    <p className="text-sm">Faites défiler</p>
+                    <p className="text-xs my-2">Faites défiler</p>
                 </div>
             </div>
         </section>
