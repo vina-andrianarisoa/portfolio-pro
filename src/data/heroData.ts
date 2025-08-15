@@ -2,7 +2,7 @@ import { HeroData } from "@/types/hero";
 import { ArrowRight, FolderOpen } from "lucide-react";
 
 export const heroData: HeroData = {
-    greetingText: "Hi!",
+    greetingText: "Hey!",
     greetingEmoji: "👋",
     intro: "je suis,",
     name: "Vina Andrianarisoa",
