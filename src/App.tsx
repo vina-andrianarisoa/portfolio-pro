@@ -6,6 +6,7 @@ import useLoaderStore from '@/store/useLoader'
 import { preloadImages } from '@/utils/preload'
 import { criticalmages } from '@/utils/images'
 import { motion } from "framer-motion"
+import About from '@/components/sections/About'
 import Footer from '@/components/layout/Footer';
 
 function App() {
@@ -38,8 +39,9 @@ function App() {
           <div className="flex flex-col min-h-screen justify-between">
             <Header/>
           
-            <main className="flex-1 flex justify-center items-center">
+            <main className="flex-1 flex flex-col justify-center items-center">
               <Hero/>
+              <About/>
             </main>
 
             <Footer/>
