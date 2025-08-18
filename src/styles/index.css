@@ -67,7 +67,7 @@
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 260 65% 50%;
+    --primary: 260 85% 50%;
     --primary-hover: 260 80% 75%;
     --primary-foreground: 0 0% 100%;
 
@@ -75,9 +75,9 @@
     --secondary-hover: 215 16% 32%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 215 16% 20%;
+    --muted: 225 8% 10%;
     --muted-hover: 215 16% 25%;
-    --muted-foreground: 217 20% 65%;
+    --muted-foreground: 217 20% 70%;
 
     --accent: 260 65 50%;
     --accent-hover: 260 80 75%;
@@ -108,6 +108,12 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans transition-colors duration-500;
+    @apply bg-background text-foreground font-sans overflow-x-hidden transition-colors duration-500;
+  }
+}
+
+@layer utilities {
+  .border-special {
+    @apply before:absolute before:content-[''] before:-bottom-5 before:left-0 before:w-1/2 before:mx-auto before:h-2 before:bg-gradient-primary-dark before:rounded-lg
   }
 }

@@ -24,10 +24,11 @@ export default {
 			sans: ['Inter', 'sans-serif'],
 		},
 		textShadow: {
-			glow: "0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #f472b6, 0 0 25px #4338ca, 0px 0px 30px #a855f7, 0 0 35px #f472b6"
+			glow: "0 0 10px hsl(var(--primary)), 0 0 15px hsl(260 65% 60%)"
 		},
 		boxShadow: {
-			glow: '0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #f472b6, 0 0 25px #4338ca, 0px 0px 30px #a855f7, 0 0 35px #f472b6'
+			glow: "0 0 10px hsl(var(--primary)), 0 0 15px hsl(290 65% 60%)",
+			img: '0 0 5px #a855f7, 0 0 10px #4338ca, 0px 0px 20px #f472b6, 0 0 25px #4338ca, 0px 0px 30px #a855f7, 0 0 35px #f472b6'
 		},
 		colors: {
 			background: 'hsl(var(--background))',
@@ -101,8 +102,8 @@ export default {
 			sm: 'calc(var(--radius) - 4px)'
 		},
 		backgroundImage: {
-			"gradient-primary-light": "linear-gradient(90deg, hsl(260 80% 65) 0%, hsl(240, 60%, 55%) 50%, hsl(320, 75%, 70%) 100%)",
-			"gradient-primary-dark": "linear-gradient(90deg, hsl(260 65% 50%) 0%, hsl(240, 55%, 45%) 50%, hsl(320, 65%, 60%) 100%)",
+			"gradient-primary-light": "linear-gradient(to right, hsl(280 100% 75%) 0%, hsl(260 95% 70%) 100%)",
+			"gradient-primary-dark": "linear-gradient(to right, hsl(290 85% 60%) 0%, hsl(260 80% 55%) 100%)",
 		},
   		keyframes: {
   			'accordion-down': {
@@ -129,6 +130,7 @@ export default {
   	}
   },
   plugins: [
-	require('tailwindcss-animate')
+	require('tailwindcss-animate'),
+	require('tailwindcss-textshadow')
  ]
 }
