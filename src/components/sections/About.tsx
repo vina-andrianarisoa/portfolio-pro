@@ -27,10 +27,10 @@ const About = () => {
                     >
                     <motion.p 
                         
-                        className="text-muted-foreground text-left lg:text-justify leading-relaxed mb-6">
+                        className="text-muted-foreground text-justify [hyphens:auto] max-w-[65ch] leading-relaxed mb-6">
                         {aboutData.description.map((part, index) => 
                                         (
-                                            part.bold ? <span key={index} className="font-bold text-accent">{" "}{part.text}{" "}</span> : <span key={index}>{part.text}</span>
+                                            part.bold ? <span key={index} className="font-bold text-accent">{" "}{part.text}</span> : <span key={index}>{" "}{part.text}</span>
                                         )
                                     )}
                     </motion.p>
