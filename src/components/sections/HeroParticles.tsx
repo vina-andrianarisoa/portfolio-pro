@@ -21,14 +21,14 @@ export default function HeroParticles() {
                         fpsLimit: 60,
                         particles: {
                             number: { value: 80, density: { enable: true, area: 800 } },
-                            color: { value: ["#8d5eed", "rgba(255, 255, 255, 0.7"] },
+                            color: { value: ["hsl(290 85% 60%)", "hsl(260 80% 55%)", "hsl(320, 100%, 70%)", "rgba(255, 255, 255, 0.7"] },
                             shape: { type: ["circle"] },
                             opacity: { value: 0.2, random: true },
                             size: { value: { min: 1, max: 8 }, random: true },
                             move: { enable: true, speed: 1, direction: "none", random: true, straight: false, outModes: "out", attract: { enable: false } },
                             links: { enable: false },
                             twinkle: { enable: true, color: "#ffffff", frequency: 0.002, opacity: 0.6 },
-                            shadow: { enable: true, color: "#8d5eed", blur: 4 }
+                            shadow: { enable: true, color: "hsl(290, 100%, 75%", blur: 4 }
                         },
                         interactivity: {
                             events: {

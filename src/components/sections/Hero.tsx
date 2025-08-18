@@ -42,7 +42,7 @@ export default function Hero() {
                                         <span>{" "}{intro}</span>
                                     </h1>
 
-                                    <h2 className="text-center lg:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-primary bg-gradient-primary-light dark:bg-gradient-primary-dark font-extrabold tracking-tight bg-clip-text text-transparent whitespace-nowrap">
+                                    <h2 className="text-center lg:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-primary bg-gradient-primary-dark font-extrabold tracking-tight bg-clip-text text-transparent whitespace-nowrap">
                                         <Typewriter
                                             onInit={(typewriter) => {
                                                 typewriter.typeString(`${name}`)
@@ -115,8 +115,8 @@ export default function Hero() {
                             transition={{ type: "spring", stiffness: 100, damping: 30 }}
                             className="relative order-1 lg:order-2 pt-10 pb-5 lg:p-0"
                             >
-                            <div className="relative h-[150px] w-[150px] lg:h-[25vw] lg:w-[25vw] max-w-[300px] max-h-[300px] mx-auto rounded-full border-4 border-primary before:absolute before:content-[''] before:shadow-glow before:overflow-hidden before:w-full before:h-full before:animate-pulse before:rounded-full">
-                                <div className="aspect-[4/4] rounded-full bg-gradient-to-br from-primary/10 via-primary/5 to-transparent">
+                            <div className="relative h-[150px] w-[150px] lg:h-[25vw] lg:w-[25vw] max-w-[300px] max-h-[300px] mx-auto rounded-full border-4 border-primary before:absolute before:content-[''] before:shadow-img before:overflow-hidden before:w-full before:h-full before:animate-pulse before:rounded-full">
+                                <div className="aspect-[4/4] rounded-full">
                                     <img
                                         src={imageSrc}
                                         alt="Photo de mon profil"

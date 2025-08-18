@@ -26,20 +26,20 @@ export const MenuDesktop = () => {
                 animate="visible"
                 variants={parentVariant}
                 >
-                { navLinks.map((link, index) => (
+                { navLinks.map((link) => (
                     <motion.li 
-                        key={index}
+                        key={link.id}
                         className="relative"
                         variants={ itemVariant }
                         >
-                        <Link 
+                        <Link
                             to={link.id}
                             spy={true}
                             smooth={true}
                             offset={-70}
                             duration={500}
                             onSetActive={() => setActive(link.id)}
-                            className={cn('cursor-pointer transition-colors hover:text-primary', active === link.id ? 'text-primary font-semibold' : 'text-muted-foreground')}
+                            className={cn('cursor-pointer text-base font-medium transition-colors hover:text-primary dark:hover:text-shadow-glow', active === link.id ? 'text-primary dark:text-shadow-glow font-semibold' : 'text-muted-foreground')}
                         >
                             {link.label}
                         </Link>
@@ -47,10 +47,10 @@ export const MenuDesktop = () => {
                         { active === link.id && (
                             <motion.div
                                 layoutId='underline'
-                                className="absolute -bottom-5 left-0 h-[2px] w-full bg-primary"
-                                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                className="absolute -bottom-5 left-0 h-[2px] w-full bg-primary dark:shadow-glow"
+                                transition={{ type: "spring", stiffness: 400 }}
                             />
-                        ) }
+                        )}
                     </motion.li>
                 )) }
             </motion.ul>
