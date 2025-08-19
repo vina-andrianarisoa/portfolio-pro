@@ -14,7 +14,7 @@ export const heroData: HeroData = {
     ],
     imageSrc: "images/profile/profile.jpg",
     ctas: [
-        { label: "Me contater", href: "#contact", icon: ArrowRight, variant: "default" },
+        { label: "Me contacter", href: "#contact", icon: ArrowRight, variant: "default" },
         { label: "Voir mes projets", href: "#projets", icon: FolderOpen, variant: "outline" },
     ],
 };

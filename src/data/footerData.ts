@@ -8,7 +8,7 @@ export const footerLinks: FooterLinks[] = [
         icon: Github,
     },
     {
-        href: "https://linkedin.com/in/vina-andrianarisoa",
+        href: "https://linkedin.com/in/vinatendrinekenaandrianarisoa",
         label: "LinkedIn",
         icon: Linkedin,
     },
