@@ -6,6 +6,7 @@ import useLoaderStore from '@/store/useLoader'
 import { preloadImages } from '@/utils/preload'
 import { criticalmages } from '@/utils/images'
 import { motion } from "framer-motion"
+import Footer from '@/components/layout/Footer';
 
 function App() {
   const { hideLoader, loading } = useLoaderStore();
@@ -41,9 +42,7 @@ function App() {
               <Hero/>
             </main>
 
-            <footer>
-              <div>Footer</div>
-            </footer>
+            <Footer/>
           </div>
         </motion.div>
       ) }
