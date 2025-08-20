@@ -8,7 +8,7 @@ export const heroData: HeroData = {
     name: "Vina Andrianarisoa",
     roles: ["autodidacte", "passionné", "créatif", "Développeur Front-end React"],
     description: [
-        { text: "Développeur Front-end autodidacte, je conçois des interfaces modernes et interactives avec", bold: false },
+        { text: "Je conçois des interfaces modernes et interactives avec", bold: false },
         { text: "React, Tailwind CSS, Framer Motion et ShadCN", bold: true},
         { text: "transformant les idées en expériences visuelles captivantes.", bold: false },
     ],

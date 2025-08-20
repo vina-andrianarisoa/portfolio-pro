@@ -1,7 +1,7 @@
 import { Link } from 'react-scroll';
 import { navLinks } from '@/data/navLinks';
 import { cn } from '@/lib/utils';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { ModeToggle } from '@/components/ui/mode-toggle';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -10,26 +10,41 @@ import useUIStore from '@/store/useUIStore';
 export const MenuMobile = () => {
     const { active, setActive, open, setOpen } = useUIStore();
 
+    const parentVariant : Variants = {
+        hidden: {}, visible: { transition: { delayChildren: 0.3, staggerChildren: 0.3 } }
+    }
+
     return (
-<div className="lg:hidden flex items-center gap-2">
-                <ModeToggle/>
+            <motion.div 
+                variants={parentVariant}
+                className="lg:hidden flex items-center gap-2"
+                >
+                <motion.div
+                    variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } } }}
+                >
+                    <ModeToggle/>
+                </motion.div>
 
                 {/* Menu Popover */}
-                <Button 
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setOpen(!open)}
-                    >
-                    <motion.div
-                        key={open ? 'open' : 'menu'}
-                        initial={{ rotate: -90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: 90, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        { open ? <X className="h-6 w-6"/> : <Menu className="h-6 w-6"/> }
-                    </motion.div>
-                </Button>
+                <motion.div
+                    variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } } }}
+                >
+                    <Button 
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setOpen(!open)}
+                        >
+                        <motion.div
+                            key={open ? 'open' : 'menu'}
+                            initial={{ rotate: -90, opacity: 0 }}
+                            animate={{ rotate: 0, opacity: 1 }}
+                            exit={{ rotate: 90, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            >
+                            { open ? <X className="h-6 w-6"/> : <Menu className="h-6 w-6"/> }
+                        </motion.div>
+                    </Button>
+                </motion.div>
 
                 <AnimatePresence mode="wait">
                     { open && (
@@ -88,6 +103,6 @@ export const MenuMobile = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </div>
+            </motion.div>
     )
 }
