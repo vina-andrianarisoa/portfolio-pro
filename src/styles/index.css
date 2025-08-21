@@ -114,6 +114,6 @@
 
 @layer utilities {
   .border-special {
-    @apply before:absolute before:content-[''] before:-bottom-5 before:left-0 before:w-1/2 before:mx-auto before:h-2 before:bg-gradient-primary-dark before:rounded-lg
+    @apply before:absolute before:content-[''] before:-bottom-5 before:left-[40px] before:w-1/2 before:mx-auto before:h-2 before:bg-gradient-primary-dark before:rounded-lg
   }
 }
