@@ -7,6 +7,11 @@ export interface AboutData {
         icon: ComponentType<SVGProps<SVGSVGElement>>; 
         color: string;
         description: { text: string, bold: boolean }[],
-        link?: string,
+        certificates?: { 
+            title: string;
+            preview?: string; 
+            pdf?: string | null;
+            locked?: boolean; 
+        }[]
     }[];
 }

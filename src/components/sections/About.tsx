@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from "framer-motion"
 import { aboutData } from "@/data/aboutData"
 import { cn } from "@/lib/utils"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
+import CertificateCard from '@/components/CertificateCard'
 
 const PDF_URL = "/certificats/attestation_de_formation.pdf";
 
 const About = () => {
     const [openItem, setOpenItem] = useState<string | undefined>("item-0");
-    const [isOpenModal, setIsOPenModal] = useState<boolean>(false);
+    const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
     return (
         <section id="about"
@@ -36,7 +36,7 @@ const About = () => {
                     >
                     <Accordion type="single" collapsible value={openItem} onValueChange={setOpenItem} className="w-full space-y-4">
 
-                        { aboutData.subtitle.map(({ title, icon: Icon, description, color, link }, idx) => {
+                        { aboutData.subtitle.map(({ title, icon: Icon, description, color, certificates }, idx) => {
                             const isOpen = openItem === `item-${idx}`;
 
                             return (
@@ -48,25 +48,13 @@ const About = () => {
                                         className="flex items-center gap-4 text-lg font-semibold [&[data-state=open]>span>svg]:rotate-0 [&>span>svg]:transition-none"
                                     >
                                         <span className="shrink-0 flex items-center gap-4">
-                                            <motion.span
+                                            <span
                                                 className="flex items-center"
-                                                initial={{ rotate: 0 }}
-                                                animate={{ rotate: 0 }}
-                                                whileTap={{ rotate: 15 }}
-                                                transition={{ type:"spring", stiffness: 300, damping: 20 }}
                                             >
                                                 < Icon className={cn(`w-6 h-6 ${color}`)}/>
-                                            </motion.span>
+                                            </span>
                                                 { title }
                                         </span>
-    
-                                        <motion.span
-                                            initial={{ rotate: 0 }}
-                                            animate={{ rotate: 0 }}
-                                            whileTap={{ rotate: 180 }}
-                                            className="ml-2"
-                                        >
-                                        </motion.span>
                                     </AccordionTrigger>
     
                                     <AccordionContent
@@ -93,8 +81,21 @@ const About = () => {
                                                         </motion.span>
                                                     )) }
                                                     
-                                                    { link && (
-                                                        <Button variant="outline" size="sm" className="block my-4" onClick={() => setIsOPenModal(!isOpenModal)}>Voir le certificat</Button>
+                                                    { certificates && certificates.length > 0 && (
+                                                        <div className="grid gap-6 grid-cols-[repeat(auto-fit,_minmax(250px,_300px))] py-6">
+                                                            { certificates.map((cert, i) => (
+                                                                <CertificateCard
+                                                                    key={i}
+                                                                    title={cert.title}
+                                                                    preview={cert.locked ? undefined : cert.preview}
+                                                                    onView={cert.locked ? undefined : () => {
+                                                                        setIsOpenModal(true)
+                                                                    }}
+                                                                    locked={cert.locked}
+                                                                >
+                                                                </CertificateCard>
+                                                            )) }
+                                                        </div>
                                                     ) }
                                                 </motion.div>
                                             ) }
@@ -107,28 +108,29 @@ const About = () => {
                     </Accordion>
                 </motion.div>
 
+                {/* Modal Certificat */}
                 <AnimatePresence mode="wait">
                     { isOpenModal && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-[9998]"
+                            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-[9998] pointer-events-auto"
                         >
                             <motion.div
                                 initial={{ scale: 0.8 }}
                                 animate={{ scale: 1 }}
                                 exit={{ scale: 0.8 }}
-                                className="bg-muted p-4 rounded-lg w-11/12 max-3xl h-[80vh] z-[9999]"
+                                className="bg-muted p-4 rounded-lg w-11/12 max-w-3xl h-[80vh] z-[9999] overflow-hidden"
                             >
                                 <motion.div
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 0.5 }}
                                     whileHover={{ opacity: 1, color: "hsl(var(--primary))" }}
                                 >
-                                    <X className="absolute w-6 h-6 top-5 right-5 cursor-pointer" onClick={() => setIsOPenModal(false)}/>
+                                    <X className="absolute w-6 h-6 top-5 right-5 cursor-pointer" onClick={() => setIsOpenModal(false)}/>
                                 </motion.div>
-                                <iframe src={PDF_URL} className="inset-0 w-full h-full"/>
+                                <iframe src={PDF_URL} title="Attestation de formation" className="inset-0 w-full h-full"/>
                             </motion.div>
                         </motion.div>
                     ) }

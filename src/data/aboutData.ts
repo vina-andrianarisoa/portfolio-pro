@@ -9,10 +9,9 @@ export const aboutData : AboutData = {
             icon: Code,
             color: "text-blue-500",
             description: [
-                { text: "Je suis un", bold: false },
-                { text: "développeur web autodidacte passionné ", bold: true },
+                { text: "Un développeur web autodidacte passionné ", bold: true },
                 { text: "par la création d'interfaces modernes, interactives et agréables à utiliser.\n", bold:false },
-                { text: "Actuellement, j'apprend et pratique les technologies front-end comme", bold: false },
+                { text: "Actuellement, j'apprends et pratique les technologies front-end comme", bold: false },
                 { text: "React, Tailwind CSS, ShadCN, Framer Motion et bien d'autres", bold: true },
                 { text: ", afin de renforcer mes compétences. \n\n Même si je n'ai pas encore d'expériences en entreprise, je consacre chaque jour plusieurs heures à l'apprentissage et à la réalisation de projets personnels, pour mettre en pratique mes connaissances et progresser.", bold: false },
             ]
@@ -55,7 +54,18 @@ export const aboutData : AboutData = {
                 { text: "intermédiaire et avancé \n", bold: true },
                 { text: ", pour approfondir mes connaissances et consolider mes compétences front-end.", bold: false },
             ],
-            link: "/certificats/attestation_de_formation.pdf"
+            certificates: [
+                {
+                    title: "Attestation de formation débutant",
+                    preview: "/certificats/preview_attestation1.png",
+                    pdf: "/certificats/attestation_de_formation.pdf",
+                    locked: false
+                },
+                {
+                    title: "Attestation de formation intermédiaire",
+                    locked: true
+                }
+            ]
         },
         {
             title: "Motivation",
