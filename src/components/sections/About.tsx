@@ -3,9 +3,14 @@ import { motion, AnimatePresence } from "framer-motion"
 import { aboutData } from "@/data/aboutData"
 import { cn } from "@/lib/utils"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button"
+import { X } from "lucide-react"
+
+const PDF_URL = "/certificats/attestation_de_formation.pdf";
 
 const About = () => {
     const [openItem, setOpenItem] = useState<string | undefined>("item-0");
+    const [isOpenModal, setIsOPenModal] = useState<boolean>(false);
 
     return (
         <section id="about"
@@ -31,7 +36,7 @@ const About = () => {
                     >
                     <Accordion type="single" collapsible value={openItem} onValueChange={setOpenItem} className="w-full space-y-4">
 
-                        { aboutData.subtitle.map(({ title, icon: Icon, description, color }, idx) => {
+                        { aboutData.subtitle.map(({ title, icon: Icon, description, color, link }, idx) => {
                             const isOpen = openItem === `item-${idx}`;
 
                             return (
@@ -87,6 +92,10 @@ const About = () => {
                                                             { part.text }{" "}
                                                         </motion.span>
                                                     )) }
+                                                    
+                                                    { link && (
+                                                        <Button variant="outline" size="sm" className="block my-4" onClick={() => setIsOPenModal(!isOpenModal)}>Voir le certificat</Button>
+                                                    ) }
                                                 </motion.div>
                                             ) }
                                         </AnimatePresence>
@@ -97,6 +106,33 @@ const About = () => {
                         ) }
                     </Accordion>
                 </motion.div>
+
+                <AnimatePresence mode="wait">
+                    { isOpenModal && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-[9998]"
+                        >
+                            <motion.div
+                                initial={{ scale: 0.8 }}
+                                animate={{ scale: 1 }}
+                                exit={{ scale: 0.8 }}
+                                className="bg-muted p-4 rounded-lg w-11/12 max-3xl h-[80vh] z-[9999]"
+                            >
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 0.5 }}
+                                    whileHover={{ opacity: 1, color: "hsl(var(--primary))" }}
+                                >
+                                    <X className="absolute w-6 h-6 top-5 right-5 cursor-pointer" onClick={() => setIsOPenModal(false)}/>
+                                </motion.div>
+                                <iframe src={PDF_URL} className="inset-0 w-full h-full"/>
+                            </motion.div>
+                        </motion.div>
+                    ) }
+                </AnimatePresence>
             </div>
         </section>
     )
