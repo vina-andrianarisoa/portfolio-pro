@@ -1,9 +1,11 @@
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { aboutData } from "@/data/aboutData"
 import { cn } from "@/lib/utils"
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion" 
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion"
 
 const About = () => {
+    const [openItem, setOpenItem] = useState<string | undefined>("item-0");
 
     return (
         <section id="about"
@@ -27,46 +29,74 @@ const About = () => {
                     viewport={{ once: false }}
                     className="bg-muted w-full py-6 px-8 border-l-4 border-primary rounded-xl text-base shadow-lg backdrop-blur-lg space-y-6 divide-y divide-border"
                     >
-                    <Accordion type="single" collapsible defaultValue="item-0" className="w-full space-y-4">
+                    <Accordion type="single" collapsible value={openItem} onValueChange={setOpenItem} className="w-full space-y-4">
 
-                        { aboutData.subtitle.map(({ title, icon: Icon, description, color }, idx) => (
-                            
-                            <AccordionItem 
-                                key={idx}
-                                value={`item-${idx}`}
-                            >
-                                <AccordionTrigger
-                                    className="flex items-center gap-4 text-lg font-semibold [&[data-state=open]>span>svg]:rotate-0 [&>span>svg]:transition-none"
-                                >
-                                    <span className="shrink-0 flex items-center gap-4">
-                                        < Icon className={cn(`w-6 h-6 ${color}`)}/>
-                                        { title }
-                                    </span>
-                                </AccordionTrigger>
+                        { aboutData.subtitle.map(({ title, icon: Icon, description, color }, idx) => {
+                            const isOpen = openItem === `item-${idx}`;
 
-                                <AccordionContent
-                                    className="text-muted-foreground leading-relaxed px-2 sm:px-4"
+                            return (
+                                <AccordionItem 
+                                    key={idx}
+                                    value={`item-${idx}`}
                                 >
-                                    <AnimatePresence initial={false}>
-                                        <motion.div 
-                                            key={idx}
-                                            initial={{ opacity: 0, y: -10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -10 }}
-                                            transition={{ duration: 0.25 }}
+                                    <AccordionTrigger
+                                        className="flex items-center gap-4 text-lg font-semibold [&[data-state=open]>span>svg]:rotate-0 [&>span>svg]:transition-none"
+                                    >
+                                        <span className="shrink-0 flex items-center gap-4">
+                                            <motion.span
+                                                className="flex items-center"
+                                                initial={{ rotate: 0 }}
+                                                animate={{ rotate: 0 }}
+                                                whileTap={{ rotate: 15 }}
+                                                transition={{ type:"spring", stiffness: 300, damping: 20 }}
+                                            >
+                                                < Icon className={cn(`w-6 h-6 ${color}`)}/>
+                                            </motion.span>
+                                                { title }
+                                        </span>
+    
+                                        <motion.span
+                                            initial={{ rotate: 0 }}
+                                            animate={{ rotate: 0 }}
+                                            whileTap={{ rotate: 180 }}
+                                            className="ml-2"
                                         >
-                                            { description.map((part, index) => (
-                                                part.bold ? <span key={index} className="font-bold text-accent">{" "}{part.text}</span> : <span key={index}>{""}{part.text}</span>
-                                            )) }
-                                        </motion.div>
-                                    </AnimatePresence>
-                                </AccordionContent>
-                            </AccordionItem>
-                        )) }
+                                        </motion.span>
+                                    </AccordionTrigger>
+    
+                                    <AccordionContent
+                                        className="text-muted-foreground text-base leading-relaxed px-2 sm:px-4"
+                                    >
+                                        <AnimatePresence mode="wait">
+                                            { isOpen && (
+                                                <motion.div 
+                                                    key={title}
+                                                    initial="hidden"
+                                                    animate="visible"
+                                                    exit="hidden"
+                                                    variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
+                                                    transition={{ staggerChildren: 0.05, duration: 0.25 }}
+                                                >
+    
+                                                    { description.map((part, index) => (
+                                                        <motion.span
+                                                            key={index}
+                                                            variants={{ hidden: { opacity: 0, y: -5 }, visible: { opacity: 1, y: 0 } }}
+                                                            className={ part.bold ? "font-bold text-accent" : "" }
+                                                        >
+                                                            { part.text }{" "}
+                                                        </motion.span>
+                                                    )) }
+                                                </motion.div>
+                                            ) }
+                                        </AnimatePresence>
+                                    </AccordionContent>
+                                </AccordionItem>
+                            )
+                        }    
+                        ) }
                     </Accordion>
-                
                 </motion.div>
-
             </div>
         </section>
     )

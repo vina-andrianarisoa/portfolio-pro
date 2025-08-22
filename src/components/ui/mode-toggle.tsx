@@ -22,7 +22,7 @@ export function ModeToggle() {
           className={cn("rounded-full relative overflow-hidden")}
           >
 
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             
             { theme === 'dark' ?
               (
