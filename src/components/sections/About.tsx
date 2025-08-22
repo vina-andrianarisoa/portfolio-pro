@@ -1,6 +1,7 @@
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { aboutData } from "@/data/aboutData"
 import { cn } from "@/lib/utils"
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion" 
 
 const About = () => {
 
@@ -19,26 +20,50 @@ const About = () => {
                     { aboutData.title }
                 </motion.h2>
 
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    className="bg-muted w-full py-6 px-8 border-l-8 border-primary rounded-xl text-base shadow-lg backdrop-blur-lg space-y-4"
+                    viewport={{ once: false }}
+                    className="bg-muted w-full py-6 px-8 border-l-4 border-primary rounded-xl text-base shadow-lg backdrop-blur-lg space-y-6 divide-y divide-border"
                     >
+                    <Accordion type="single" collapsible defaultValue="item-0" className="w-full space-y-4">
 
-                    { aboutData.subtitle.map(({ title, icon: Icon, description, color }, idx) => (
-                        <div key={idx}>
-                            <h3 className="text-xl font-semibold flex items-center gap-4">
-                                < Icon className={cn(`w-6 h-6 ${color}`)}/>
-                                { title }
-                            </h3>
+                        { aboutData.subtitle.map(({ title, icon: Icon, description, color }, idx) => (
+                            
+                            <AccordionItem 
+                                key={idx}
+                                value={`item-${idx}`}
+                            >
+                                <AccordionTrigger
+                                    className="flex items-center gap-4 text-lg font-semibold [&[data-state=open]>span>svg]:rotate-0 [&>span>svg]:transition-none"
+                                >
+                                    <span className="shrink-0 flex items-center gap-4">
+                                        < Icon className={cn(`w-6 h-6 ${color}`)}/>
+                                        { title }
+                                    </span>
+                                </AccordionTrigger>
 
-                            <p className="text-muted-foreground text-justify [hyphens:auto] leading-relaxed px-4 mx-2 mb-6">{ description.map((part, index) => (
-                                part.bold ? <span key={index} className="font-bold text-accent">{" "}{part.text}</span> : <span key={index}>{""}{part.text}</span>
-                            )) }</p>
-                        </div>
-                    )) }
+                                <AccordionContent
+                                    className="text-muted-foreground leading-relaxed px-2 sm:px-4"
+                                >
+                                    <AnimatePresence initial={false}>
+                                        <motion.div 
+                                            key={idx}
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            transition={{ duration: 0.25 }}
+                                        >
+                                            { description.map((part, index) => (
+                                                part.bold ? <span key={index} className="font-bold text-accent">{" "}{part.text}</span> : <span key={index}>{""}{part.text}</span>
+                                            )) }
+                                        </motion.div>
+                                    </AnimatePresence>
+                                </AccordionContent>
+                            </AccordionItem>
+                        )) }
+                    </Accordion>
                 
                 </motion.div>
 
